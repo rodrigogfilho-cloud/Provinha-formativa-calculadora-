@@ -5,7 +5,7 @@ def main (pagina:ft.Page):
     pagina.window.height = 800
     pagina.title='Calculadora (Prova-formativa)'
     pagina.horizontal_alignment= 'center'
-    pagina.bgcolor="#0c5df3"
+    pagina.bgcolor="#011b4d"
 
     resultados = []
 
@@ -21,14 +21,16 @@ def main (pagina:ft.Page):
     value01= ft.TextField(value='',
                           label='Digite o número aqui',
                           width=200,
-                          bgcolor='#ffffff',
-                          border_radius=50)
+                          bgcolor="#4554aa",
+                          border_radius=50,
+                          color='#ffffff',
+                         )
 
     value02= ft.TextField(value='',
                           label='Digite o número aqui',
                           width= 200,
-                          bgcolor='#ffffff',
-                          border_radius=50)
+                          bgcolor='#4554aa',
+                          border_radius=50,color='#ffffff')
 
     row_values = ft.Row(controls=[value01, value02],
                         alignment='center',
@@ -44,8 +46,9 @@ def main (pagina:ft.Page):
         if resultado != 67:
             resultados.append(ft.Container(ft.Text(value= f'{valor_01} + {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8"))
         elif resultado == 67:
-                    print('SIXXXXXXXXXX SEVENNNNNNNNNN')
-
+             pagina.show_dialog(ft.AlertDialog(content=ft.Text("SIX SEVENNNNN 67"),
+                                        open=True,
+                                        ))
 
     def subtracao():
         valor_01 = int(value01.value)
@@ -54,7 +57,9 @@ def main (pagina:ft.Page):
         if resultado != 67:
             resultados.append(ft.Container(ft.Text(value= f'{valor_01} - {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8"))
         elif resultado == 67:
-                    print('SIXXXXXXXXXX SEVENNNNNNNNNN')
+             pagina.show_dialog(ft.AlertDialog(content=ft.Text("SIX SEVENNNNN 67"),
+                                        open=True,
+                                        ))
         
     def multi():
         valor_01 = int(value01.value)
@@ -64,7 +69,13 @@ def main (pagina:ft.Page):
             resultados.append(ft.Container(ft.Text(value= f'{valor_01} * {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8",
                                            ))
         elif resultado == 67:
-            print('SIXXXXXXXXXX SEVENNNNNNNNNN')
+            pagina.show_dialog(ft.AlertDialog(content=ft.Text("SIX SEVENNNNN 67"),
+                                       open=True,
+                                       bgcolor="#f5e504",
+                                       
+                                    
+                                       ))
+
 
     def divisao():
         valor_01 = int(value01.value)
@@ -74,7 +85,9 @@ def main (pagina:ft.Page):
             # resultado.append (serve para adicionar o item a lista) ft.Container (serve para criar o container, para englobar tudo) ft.Text (é para inserir o value, que vai conter. Por ex: f'{valor_01} / {valor_02} = {resultado}' e o que vem depois, serve apenas para personalizar o Container e o text
             resultados.append(ft.Container(ft.Text(value= f'{valor_01} / {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8" ))
         elif resultado == 67:
-            print('SIXXXXXXXXXX SEVENNNNNNNNNN')
+            pagina.show_dialog(ft.AlertDialog(content=ft.Text("SIX SEVENNNNN 67"),
+                           open=True,
+))
 
     # Botões dos cálculos
 
@@ -112,18 +125,12 @@ def main (pagina:ft.Page):
                         size = 25,
                         color='#ffffff',
                         weight=ft.FontWeight.BOLD,
-                        bgcolor="#010a8f",
                         )
 
     # Criar uma coluna, para colocar na lista de controls ( para aparecer na página ) OBS: 'resultado' é o nome da lista ( lista que os resultados dos calculos vão entrar ) 
-    coluna = ft.Column(controls=resultados)
+    coluna = ft.Column(controls=resultados, )
 
-    alerta = ft.AlertDialog(
-    title=ft.Text("Session expired"),
-    content=ft.Text("Please sign in again to continue."),
-    actions=[ft.TextButton("Dismiss")],
-    open=True,
-)
+    
     
     pagina.update()
     
