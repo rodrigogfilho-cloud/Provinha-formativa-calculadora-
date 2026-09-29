@@ -11,7 +11,7 @@ def main (pagina:ft.Page):
 
 
     #Título
-    title = ft.Text(value='Calculadora Gordoxz',
+    title = ft.Text(value='🔹 Calculadora Gordoxz 🔹',
                     size = 35,
                     color='#ffffff',
                     weight=ft.FontWeight.BOLD,
