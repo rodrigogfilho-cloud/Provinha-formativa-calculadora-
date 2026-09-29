@@ -103,10 +103,18 @@ def main (pagina:ft.Page):
                                 botao_divisao],
                                 alignment='center')
 
+    text_history = ft.Text(value='Histórico',
+                        size = 25,
+                        color='#ffffff',
+                        weight=ft.FontWeight.BOLD,
+                        bgcolor="#010a8f",
+                        )
     
-
+    pagina.update()
     
     pagina.add(title)
     pagina.add(row_values)
     pagina.add(row_calc)
+    pagina.add(text_history)
+
 ft.run(main)
