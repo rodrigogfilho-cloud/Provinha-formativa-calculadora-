@@ -40,9 +40,14 @@ def main (pagina:ft.Page):
 
 
     def adicao():
-        valor_01 = int(value01.value)
-        valor_02 =  int(value02.value)
-        resultado = valor_01 + valor_02
+        try:
+            valor_01 = int(value01.value)
+            valor_02 =  int(value02.value)
+            resultado = valor_01 + valor_02
+        except:
+            pagina.show_dialog(ft.SnackBar('Preencha as caixas de texto'))
+            return 
+        
         if resultado != 67:
             resultados.append(ft.Container(ft.Text(value= f'{valor_01} + {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8",padding=6 ,
                                                        border_radius=20))
@@ -52,9 +57,13 @@ def main (pagina:ft.Page):
                                         ))
 
     def subtracao():
-        valor_01 = int(value01.value)
-        valor_02 =  int(value02.value)
-        resultado = valor_01 - valor_02
+        try:
+            valor_01 = int(value01.value)
+            valor_02 =  int(value02.value)
+            resultado = valor_01 - valor_02
+        except:
+            pagina.show_dialog(ft.SnackBar('Preencha as caixas de texto'))
+            return 
         if resultado != 67:
             resultados.append(ft.Container(ft.Text(value= f'{valor_01} - {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8",
                                            padding=6 ,
@@ -65,9 +74,13 @@ def main (pagina:ft.Page):
                                         ))
         
     def multi():
-        valor_01 = int(value01.value)
-        valor_02 =  int(value02.value)
-        resultado = valor_01 * valor_02
+        try:
+            valor_01 = int(value01.value)
+            valor_02 =  int(value02.value)
+            resultado = valor_01 * valor_02
+        except:
+            pagina.show_dialog(ft.SnackBar('Preencha as caixas de texto'))
+            return 
         if resultado != 67:
             resultados.append(ft.Container(ft.Text(value= f'{valor_01} * {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8",
                                            padding=6 ,
@@ -85,9 +98,13 @@ def main (pagina:ft.Page):
 
 
     def divisao():
-        valor_01 = int(value01.value)
-        valor_02 =  int(value02.value)
-        resultado = round(valor_01 / valor_02,2)
+        try:
+            valor_01 = int(value01.value)
+            valor_02 =  int(value02.value)
+            resultado = round(valor_01 / valor_02,2)
+        except:
+            pagina.show_dialog(ft.SnackBar('Preencha as caixas de texto'))
+            return 
         if resultado != 67:
             # resultado.append (serve para adicionar o item a lista) ft.Container (serve para criar o container, para englobar tudo) ft.Text (é para inserir o value, que vai conter. Por ex: f'{valor_01} / {valor_02} = {resultado}' e o que vem depois, serve apenas para personalizar o Container e o text
             resultados.append(ft.Container(ft.Text(value= f'{valor_01} / {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8",
