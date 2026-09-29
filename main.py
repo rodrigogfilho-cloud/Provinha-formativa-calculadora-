@@ -21,25 +21,28 @@ def main (pagina:ft.Page):
     value01= ft.TextField(value='',
                           label='Digite o número aqui',
                           width=200,
-                          bgcolor='#ffffff')
+                          bgcolor='#ffffff',
+                          border_radius=50)
 
     value02= ft.TextField(value='',
                           label='Digite o número aqui',
                           width= 200,
-                          bgcolor='#ffffff')
+                          bgcolor='#ffffff',
+                          border_radius=50)
 
     row_values = ft.Row(controls=[value01, value02],
                         alignment='center',
                         )
 
-    
+    # Criação das def´s para gerar o resultado
+
 
     def adicao():
         valor_01 = int(value01.value)
         valor_02 =  int(value02.value)
         resultado = valor_01 + valor_02
         if resultado != 67:
-            print(f'{valor_01} + {valor_02} = {resultado}')
+            resultados.append(ft.Container(ft.Text(value= f'{valor_01} + {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8"))
         elif resultado == 67:
                     print('SIXXXXXXXXXX SEVENNNNNNNNNN')
 
@@ -49,17 +52,17 @@ def main (pagina:ft.Page):
         valor_02 =  int(value02.value)
         resultado = valor_01 - valor_02
         if resultado != 67:
-            print(f'{valor_01} - {valor_02} = {resultado}')
+            resultados.append(ft.Container(ft.Text(value= f'{valor_01} - {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8"))
         elif resultado == 67:
                     print('SIXXXXXXXXXX SEVENNNNNNNNNN')
         
-
     def multi():
         valor_01 = int(value01.value)
         valor_02 =  int(value02.value)
         resultado = valor_01 * valor_02
         if resultado != 67:
-            print(f'{valor_01} * {valor_02} = {resultado}')
+            resultados.append(ft.Container(ft.Text(value= f'{valor_01} * {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8",
+                                           ))
         elif resultado == 67:
             print('SIXXXXXXXXXX SEVENNNNNNNNNN')
 
@@ -67,17 +70,19 @@ def main (pagina:ft.Page):
         valor_01 = int(value01.value)
         valor_02 =  int(value02.value)
         resultado = round(valor_01 / valor_02,2)
-        
         if resultado != 67:
-            print(f'{valor_01} / {valor_02} = {resultado}')
+            # resultado.append (serve para adicionar o item a lista) ft.Container (serve para criar o container, para englobar tudo) ft.Text (é para inserir o value, que vai conter. Por ex: f'{valor_01} / {valor_02} = {resultado}' e o que vem depois, serve apenas para personalizar o Container e o text
+            resultados.append(ft.Container(ft.Text(value= f'{valor_01} / {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8" ))
         elif resultado == 67:
             print('SIXXXXXXXXXX SEVENNNNNNNNNN')
 
+    # Botões dos cálculos
 
     botao_adicao = ft.Button(content='+',
                              on_click=adicao,
                              bgcolor="#89b2ff",
-                             color='#ffffff')
+                             color='#ffffff',
+                             )
 
    
     botao_subtracao = ft.Button(content='-',
@@ -109,12 +114,27 @@ def main (pagina:ft.Page):
                         weight=ft.FontWeight.BOLD,
                         bgcolor="#010a8f",
                         )
+
+    # Criar uma coluna, para colocar na lista de controls ( para aparecer na página ) OBS: 'resultado' é o nome da lista ( lista que os resultados dos calculos vão entrar ) 
+    coluna = ft.Column(controls=resultados)
+
+    alerta = ft.AlertDialog(
+    title=ft.Text("Session expired"),
+    content=ft.Text("Please sign in again to continue."),
+    actions=[ft.TextButton("Dismiss")],
+    open=True,
+)
     
     pagina.update()
     
-    pagina.add(title)
-    pagina.add(row_values)
-    pagina.add(row_calc)
-    pagina.add(text_history)
+    pagina.controls= [
+         title,
+         row_values,
+         row_calc,
+         text_history,
+         coluna,
+        
+         
+    ]
 
 ft.run(main)
