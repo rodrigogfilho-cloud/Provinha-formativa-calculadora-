@@ -44,7 +44,8 @@ def main (pagina:ft.Page):
         valor_02 =  int(value02.value)
         resultado = valor_01 + valor_02
         if resultado != 67:
-            resultados.append(ft.Container(ft.Text(value= f'{valor_01} + {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8"))
+            resultados.append(ft.Container(ft.Text(value= f'{valor_01} + {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8",padding=6 ,
+                                                       border_radius=20))
         elif resultado == 67:
              pagina.show_dialog(ft.AlertDialog(content=ft.Text("SIX SEVENNNNN 67"),
                                         open=True,
@@ -55,7 +56,9 @@ def main (pagina:ft.Page):
         valor_02 =  int(value02.value)
         resultado = valor_01 - valor_02
         if resultado != 67:
-            resultados.append(ft.Container(ft.Text(value= f'{valor_01} - {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8"))
+            resultados.append(ft.Container(ft.Text(value= f'{valor_01} - {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8",
+                                           padding=6 ,
+                                                                                      border_radius=20))
         elif resultado == 67:
              pagina.show_dialog(ft.AlertDialog(content=ft.Text("SIX SEVENNNNN 67"),
                                         open=True,
@@ -67,6 +70,8 @@ def main (pagina:ft.Page):
         resultado = valor_01 * valor_02
         if resultado != 67:
             resultados.append(ft.Container(ft.Text(value= f'{valor_01} * {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8",
+                                           padding=6 ,
+                                                                                      border_radius=20
                                            ))
         elif resultado == 67:
             pagina.show_dialog(ft.AlertDialog(content=ft.Text("SIX SEVENNNNN 67"),
@@ -83,7 +88,9 @@ def main (pagina:ft.Page):
         resultado = round(valor_01 / valor_02,2)
         if resultado != 67:
             # resultado.append (serve para adicionar o item a lista) ft.Container (serve para criar o container, para englobar tudo) ft.Text (é para inserir o value, que vai conter. Por ex: f'{valor_01} / {valor_02} = {resultado}' e o que vem depois, serve apenas para personalizar o Container e o text
-            resultados.append(ft.Container(ft.Text(value= f'{valor_01} / {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8" ))
+            resultados.append(ft.Container(ft.Text(value= f'{valor_01} / {valor_02} = {resultado}', color='#ffffff',size=18),bgcolor="#5077F8",
+                                           padding=6 ,
+                                           border_radius=20))
         elif resultado == 67:
             pagina.show_dialog(ft.AlertDialog(content=ft.Text("SIX SEVENNNNN 67"),
                            open=True,
@@ -140,8 +147,6 @@ def main (pagina:ft.Page):
          row_calc,
          text_history,
          coluna,
-        
-         
-    ]
+]
 
 ft.run(main)
